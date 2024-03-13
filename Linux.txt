@@ -1,0 +1,204 @@
+cat -> concatena o muestra un archivo en terminal
+
+df -k -> muestra uso discos
+
+du -sh -> muestra el total, contando desde el directorio actual y todos los subdirectorios
+
+du -h -> muestra el uso de los directorio
+
+printenv -> muestra info del server
+
+lsblk -> muestra los volumenes fisicos y particiones
+
+top -> muestra los estados de los recursos
+
+lsb_release -a -> muestra datos linux 
+
+cat /etc/os-release -> muestra datos linux TTY
+
+cat /etc/debian_version -> muestra version Debian TTY
+
+cat /etc/group -> muestra todos los grupos y sus integrantes
+
+cat /etc/passwd -> muestra todos los users
+
+service --status-all  -> muestra todos los daemons
+
+service --status-all | grep + -> muestra todos los daemons corriendo
+
+tail [-n numeroDeLogsParaVer] nombre_de_fichero.log -> muestra los ultimos 10 logs 
+
+ssh name_user@server -p 2222 -> conex via ssh
+
+du -sh name_archivo.log -> muestra el tamaño del log
+
+find / -name "*.txt" -> busca archivos desde la raiz, opcional /home/....
+
+systemctl : $ sudo systemctl start docker -> inicia demonio docker
+
+service : $ sudo service docker start -> inicia demonio docker
+
+ls -ls -> lista los directorios y archivos con su peso y permisos
+
+	Los colores son simples de entender:
+	Sin color = Archivos
+	Color azul = Carpetas
+	Color verde = Archivos con permisos de ejecución
+	
+	Directories: Blue
+    Regular Files: White
+    Executable Files: Green
+    Symbolic Links: Cyan (or a different shade of blue)
+    Compressed Files (e.g., .zip, .tar.gz): Red
+    Archives and Media Files: Magenta
+    Special Files (e.g., sockets, pipes): Yellow
+
+ls -l ->  lsita directorios y premisos con nombres del user dueño
+
+gzip archivo.log -> comprime el archivo a archivo.log.gz
+
+# rm /var/log/archivo.log -> elimina el archivo, en este caso .log (# debe estar como root)
+
+free -h -> muestra la cantidad de memoria total y en uso
+
+curl -I https://ubunlog.com
+
+useradd newuser
+
+#passwd user -> cambiar pass del usuario user
+
+rmdir Dir1 -> elimina directorio
+
+scp archivo.txt usuario@dominio.com:/home/usuario/ -> copia archivo entre mi srv y otro
+
+scp usuario@dominio.com:/home/usuario/ . -> coipia archivo de un server remoto al cual estoy conectado
+
+#sudo find /var/log/turnero/api/turnero.log.* -mtime +50 -delete ()
+
+useradd -ms /bin/bash -u 1002 -d /home/jgigena jgigena -> agregar usuario
+
+gpasswd -a jgigena docker -> agregar usuario a un grupo
+
+ssh-keygen -> genera key ssh 
+
+mv archivo1 archivo2 -> nombra archivo1 como archivo2
+
+chmod [u OR g OR o]+[r or w or x] folder/ -> asigna permisos al user o group o others al folder
+
+echo public_key_string >> ~/.ssh/authorized_keys -> copia un ssh-keygen existentente a un archivo de nombre "authorized_keys" (public_key_string debe ser reemplzado por la key ssh)
+
+##### conectarse como root en un server con docker instalado 3 pasos ->
+
+1º => $ docker run --rm -i -v /:/rootfs -t debian /bin/bash -> (levanta un container debian montando el fichero root del servidor host en el container y se loguea)
+
+2º => root@ac3a751836f4:/# chroot /rootfs -> chroot (cambia el user a root) /rootfs (monta el fichero root del container q es el mismo del server)
+
+3º => sh-4.2# tcpdump -i any port 58000 -> ya conectado como root y en este caso veo el trafico por el port 58000
+
+#####
+
+cat /etc/X11/default-display-manager -> muestra el gestor de pantalla actual
+
+#### 
+Extract to linkedIn
+1. **ssh**: Used to securely connect to remote servers or machines.
+```
+ssh user@host
+```
+
+2. **scp**: Enables secure file transfer between local and remote systems.
+```
+scp file.txt user@host:/path/to/destination
+```
+
+3. **rsync**: Allows efficient synchronization and backup of files and directories.
+```
+rsync -avz source/ destination/
+```
+
+4. **wget**: Used for downloading files from the web or through HTTP/FTP protocols.
+```
+wget https://lnkd.in/g-fDHMwW
+```
+
+5. **curl**: Enables making HTTP requests and interacting with APIs.
+```
+curl https://lnkd.in/g8qDdG74
+```
+
+6. **top**: Displays real-time system resource usage, including CPU, memory, and processes.
+```
+top
+```
+
+7. **htop**: Similar to `top` but with an enhanced user interface and interactive process viewer.
+```
+htop
+```
+
+8. **df**: Shows disk space usage on file systems.
+```
+df -h
+```
+
+9. **du**: Lists disk usage for files and directories.
+```
+du -sh /path/to/directory
+```
+
+10. **grep**: Searches for patterns in files or output.
+```
+grep "pattern" file.txt
+```
+
+11. **find**: Allows searching for files and directories based on various criteria.
+```
+find /path/to/search -name "filename"
+```
+
+12. **chmod**: Changes file permissions.
+```
+chmod 644 file.txt
+```
+
+13. **chown**: Modifies file ownership.
+```
+chown user:group file.txt
+```
+
+14. **tar**: Creates compressed archives or extracts files from archives.
+```
+tar -cvzf archive.tar.gz files/
+tar -xvzf archive.tar.gz
+```
+
+15. **systemctl**: Manages system services and control their behavior.
+```
+systemctl start service
+systemctl stop service
+systemctl restart service
+```
+
+16. **journalctl**: Views system logs and journal entries.
+```
+journalctl -u service
+```
+
+17. **iptables**: Configures firewall rules and network address translation.
+```
+iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+```
+
+18. **crontab**: Schedules recurring tasks or jobs.
+```
+crontab -e
+```
+
+19. **awk**: Processes text-based data and performs pattern scanning.
+```
+awk '{print $1}' file.txt
+```
+
+20. **sed**: Stream editor for text manipulation.
+```
+sed 's/foo/bar/' file.txt
