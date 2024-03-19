@@ -63,6 +63,12 @@ free -h -> muestra la cantidad de memoria total y en uso
 
 curl -I https://ubunlog.com
 
+lsof -i :PORT -> muestra el svc que ocupa el puerto
+
+nc -l -p 8002 -> dump de un puerto
+
+fuser -v -n tcp 8002 -> muestra el PID y que process esta usando el puerto 
+
 useradd newuser
 
 #passwd user -> cambiar pass del usuario user
