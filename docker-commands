@@ -1,0 +1,33 @@
+logstash con volumenes
+
+docker run --rm -it -v /home/notejg/Documents/tempo/nokia/datos/:/data/sftp/nokia/MIB_Counters -v /home/notejg/Documents/tempo/nokia/to_container/:/usr/share/logstash/pipeline logstash:7.8.0
+
+docker run --rm -it -v /home/notejg/Documents/tempo/sftp_nokia/:/data/sftp/nokia/MIB_Counters -v /home/notejg/Documents/tempo/confTest/:/usr/share/logstash/pipeline logstash:7.8.0
+__________________________________________________________________________________-
+
+logstash con volumenes y network
+
+docker run --rm --network logstash_elastik -it -v /home/notejg/Documents/tempo/confTest/:/usr/share/logstash/pipeline -v /home/notejg/Documents/tempo/sftp_nokia/:/data/sftp/nokia/MIB_Counters logstash:7.8.0
+___________________________________________________________________________________-
+
+comando de logstash
+#path/to/logstash --config.test_and_exit -f path/to/conf.d/folderOrFile
+
+Logstash logs
+
+tail -f /var/log/logstash/logstash-plain.log
+____________________________________________________________________________________-
+
+build img DOKERFILE y name
+
+docker build --tag my-telegraf .
+_____________________________________________________________________________________-
+
+Exec desde el host
+
+Del Contenedor a Local 
+docker cp NOMBRE_CONTENEDOR:RUTA_DEL_CONTENEDOR RUTA_LOCAL
+De Local al Contenedor
+docker cp RUTA_LOCAL NOMBRE_CONTENEDOR:RUTA_DEL_CONTENEDOR
+______________________________________________________________________________________-
+
