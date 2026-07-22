@@ -1,3 +1,4 @@
+Commands:
 cat -> concatena o muestra un archivo en terminal
 
 df -k -> muestra uso discos
